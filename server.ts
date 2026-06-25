@@ -1,9 +1,11 @@
+import dns from 'dns';
 import express from 'express';
 import { Pool } from 'pg';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import path from 'path';
 
+dns.setDefaultResultOrder('ipv4first');
 dotenv.config();
 
 const app = express();
