@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import {
-  LineChart, Line, BarChart, Bar, ComposedChart, AreaChart, Area,
+  Line, BarChart, Bar, ComposedChart, AreaChart, Area,
   XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Cell
 } from 'recharts';
 import {
   LayoutDashboard, Users, ShoppingBag, UserCheck, Loader2,
   ChevronLeft, ChevronRight, TrendingUp, TrendingDown,
-  AlertCircle, BarChart2, Search, AlertTriangle, Ghost, BadgeDollarSign, Clock, Truck, FileText, Download, X, MapPin
+  AlertCircle, Search, AlertTriangle, Ghost, BadgeDollarSign, Clock, Truck, FileText, Download, X, MapPin
 } from 'lucide-react';
 import './Dashboard.css';
 import MapPage from './MapPage';
@@ -1522,8 +1522,6 @@ export default function Dashboard() {
     };
     const STATUS_ORDER = ['not_delivered', 'packed', 'shipped', 'fully_delivered', 'partially_delivered'];
 
-    const fmtTime = (ts: string | null) =>
-      ts ? new Date(ts).toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', hour12: false }) : '—';
 
     const snapshotMap: Record<string, number> = {};
     (delivData.snapshot || []).forEach((r: any) => { snapshotMap[r.delivery_status] = Number(r.count); });
